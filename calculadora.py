@@ -1,7 +1,38 @@
-# Calculadora simples em Python
-from math import sqrt
-from math import hypot
-from math import pow
+from math import sqrt, hypot, pow
+
+def sep(x):
+    print('=' * x)
+
+def soma(x, y):
+    result = x + y
+    sep(12)
+    print(f'A soma de {x} + {y} é {result}')
+
+def sub(x, y):
+    result = x - y
+    sep(12)
+    print(f'A subtração de {x} - {y} é {result}')
+
+def multi(x, y):
+    result = x * y
+    sep(12)
+    print(f'A multiplicação de {x} × {y} é {result}')
+
+def div(x, y):
+    result = x / y
+    sep(12)
+    print(f'A divisão de {x} ÷ {y} é {result}')
+
+def po(x, y):
+    result = pow(x, y)
+    sep(12)
+    print(f'A potenciação com base {x} e expoente {y} é {result}')
+
+def sqr(x):
+    result = sqrt(x)
+    sep(12)
+    print(f'A raiz quadrada de {x} é {result}')
+
 opcao = 0
 while opcao != 8:
     print("""    1 - Soma
@@ -13,58 +44,54 @@ while opcao != 8:
     7 - Hipotenusa
     8 - Sair""")
     opcao = int(input('Qual operação você deseja: '))
-    if opcao == 1:
-        n1 = int(input('Digite o primeiro número: '))
-        n2 = int(input('Digite o segundo número: '))
-        print('='*12)
-        sum = n1 + n2
-        print(f'A soma de {n1} + {n2} é {sum}')
-        print('='*12)
-    elif opcao == 2:
-        n1 = int(input('Digite o primeiro número: '))
-        n2 = int(input('Digite o segundo número: '))
-        sub = n1 - n2
-        print('='*12)
-        print(f'A subtração de {n1} - {n2} é {sub}')
-        print('='*12)
-    elif opcao == 3:
-        n1 = int(input('Digite o primeiro número: '))
-        n2 = int(input('Digite o segundo número: '))
-        mul = n1 * n2
-        print('='*12)
-        print(f'A multiplicação de {n1} x {n2} é {mul}')
-        print('='*12)
-    elif opcao == 4:
-        n1 = int(input('Digite o primeiro número: '))
-        n2 = int(input('Digite o segundo número: '))
-        div = n1 / n2
-        print('='*12)
-        print(f'A divisão de {n1} / {n2} é {div}')
-        print('='*12)
-    elif opcao == 6:
-        n1 = int(input('Digite algum numero para ver a raiz quadrada: '))
-        raiz = sqrt(n1)
-        print('='*12)
-        print(f'A raiz quadrada de {n1} é {raiz:.2f}')
-        print('='*12)
-    elif opcao == 7:
-        co = float(input('Digite o cateto oposto: '
-    ))
-        ca = float(input('Digite o cateto adjacente: '))
-        hi = hypot(co, ca)
-        print('='*12)
-        print(f"""Calculo feito com sucesso
+    match opcao:
+        case 1:
+            sep(12)
+            soma(float(input('Qual o primeiro número? ')), float(input('Qual o segundo número? ')))
+            sep(15)
+    
+        case 2:
+            sep(12)
+            sub(float(input('Qual o primeiro número? ')), float(input('Qual o segundo número? ')))
+            sep(15)
+        
+        case 3:
+            sep(12)
+            multi(float(input('Qual o primeiro número? ')), float(input('Qual o segundo número? ')))
+            sep(15)
+        
+        case 4:
+            sep(12)
+            div(float(input('Qual o primeiro número? ')), float(input('Qual o segundo número? ')))
+            sep(15)
+        
+        case 5:
+            sep(12)
+            po(float(input('Qual o número base? ')), float(input('Qual o expoente? ')))
+            sep(15)
+        
+        case 6:
+            sep(12)
+            sqr(float(input('Qual número você deseja ver a Raiz Quadrada? ')))
+            sep(15)
+        
+        case 7:
+            sep(12)
+            co = float(input('Digite o cateto oposto: '))
+            ca = float(input('Digite o cateto adjacente: '))
+            hi = hypot(co, ca)
+            sep(12)
+            print(f"""Calculo feito com sucesso
 Cateto Oposto {co:.2f}
 Cateto Adjacente {ca:.2f}
 Hipotenusa {hi:.2f}""")
-        print('='*12)
-    elif opcao == 8:
-        print('Saindo...')
-        break
-    elif opcao == 5:
-        n1 = int(input('Digite o numero base: '))
-        n2 = int(input('Digite o expoente: '))
-        po = pow(n1, n2)
-        print('='*12)
-        print(f'A potenciação com numero base {n1} e expoente {n2} é {po}')
-        print('='*12)
+            sep(15)
+        
+        case 8:
+            print('Saindo...')
+            break
+        
+        case _:
+            sep(12)
+            print('Opção Inválida')
+            sep(15)
