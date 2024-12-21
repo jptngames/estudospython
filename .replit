@@ -1,4 +1,8 @@
 modules = ["python-3.12"]
+run = "python ji.py"
 
 [nix]
 channel = "stable-24_05"
+
+[deployment]
+python ["sh", "-c", "python ji.py"]

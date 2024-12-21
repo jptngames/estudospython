@@ -1,11 +1,7 @@
-from math import sqrt, hypot, pow
-
-def sep(x):
-    print('=' * x)
+printmath import sqrt, hypot, pow
 
 def soma(x, y):
     result = x + y
-    sep(12)
     print(f'A soma de {x} + {y} é {result}')
 
 def sub(x, y):
